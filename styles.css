@@ -44,6 +44,12 @@ h2 em { color: #15579d; font-family: inherit; font-style: normal; font-weight: i
 .kicker { color: #d71920; }
 .situation-grid { gap: 15px; }
 .situation-card { border: 1px solid #f0f1f5; box-shadow: 0 5px 20px #1b36590c; min-height: 273px; padding: 22px; border-radius: 18px; }
+.situation-card[href] { display: flex; flex-direction: column; background: #fff; cursor: pointer; }
+.adoption-card { display: flex; flex-direction: column; background: #fff; text-align: left; }
+.adoption-card-main { display: flex; flex: 1; flex-direction: column; }
+.adoption-card-main .card-link { margin-top: auto; }
+.adoption-card-federal { display: flex; justify-content: space-between; gap: 10px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #e7eaf0; color: #17579b; font-size: 11px; font-weight: 700; line-height: 1.4; }
+.adoption-card-federal:hover { text-decoration: underline; }
 .situation-card:hover,.situation-card.selected { border-color: #d7e1f0; box-shadow: 0 12px 30px #1a4b8520; }
 .situation-icon { width: 55px; height: 55px; display: block; object-fit: cover; border-radius: 50%; }
 .icon-peach { color: #d71920; background: #ffebeb; }

@@ -95,7 +95,7 @@ topics.forEach(item => Object.assign(item, {
   verified:false
 }, sourceMetadata[item.id]));
 
-const stageButtons = document.querySelectorAll('.situation-card');
+const stageButtons = document.querySelectorAll('button.situation-card');
 const routeTitle = document.querySelector('#route-title');
 const routeDescription = document.querySelector('#route-description');
 const routeSteps = document.querySelector('#route-steps');
