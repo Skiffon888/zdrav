@@ -1,0 +1,30 @@
+# Keep research materials, interviews and source documents private.
+/*
+
+# Public website files.
+!/index.html
+!/styles.css
+!/app.js
+!/data/
+!/data/generated-content.json
+!/scripts/
+!/scripts/generate-content.mjs
+!/README.md
+!/.nojekyll
+!/.gitignore
+
+# GitHub Pages configuration.
+!/.github/
+!/.github/**
+
+# Only assets used by the public website.
+!/assets/
+/assets/*
+!/assets/family-clean-2.png
+!/assets/icon-adoption.png
+!/assets/icon-parenting.png
+!/assets/icon-planning.png
+!/assets/icon-pregnancy.png
+!/assets/icon-support.png
+!/assets/material-family.png
+!/assets/material-pregnancy.png

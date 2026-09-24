@@ -1,0 +1,62 @@
+name: Publish GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 2 * * *'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    env:
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Refresh content with DeepSeek
+        if: ${{ env.DEEPSEEK_API_KEY != '' }}
+        continue-on-error: true
+        run: node scripts/generate-content.mjs
+
+      - name: Prepare public files
+        run: |
+          mkdir _site
+          cp index.html styles.css app.js .nojekyll _site/
+          mkdir _site/data
+          cp data/generated-content.json _site/data/
+          mkdir _site/assets
+          cp assets/family-clean-2.png _site/assets/
+          cp assets/icon-*.png _site/assets/
+          cp assets/material-*.png _site/assets/
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
