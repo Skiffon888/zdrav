@@ -45,6 +45,7 @@ h2 em { color: #15579d; font-family: inherit; font-style: normal; font-weight: i
 .situation-grid { gap: 15px; }
 .situation-card { border: 1px solid #f0f1f5; box-shadow: 0 5px 20px #1b36590c; min-height: 273px; padding: 22px; border-radius: 18px; }
 .situation-card[href] { display: flex; flex-direction: column; background: #fff; cursor: pointer; }
+.situation-card[href] .card-link { margin-top: auto; }
 .adoption-card { display: flex; flex-direction: column; background: #fff; text-align: left; }
 .adoption-card-main { display: flex; flex: 1; flex-direction: column; }
 .adoption-card-main .card-link { margin-top: auto; }
